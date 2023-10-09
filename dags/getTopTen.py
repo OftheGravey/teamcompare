@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from airflow.providers.postgres.hooks.postgres import PostgresHook
@@ -9,7 +10,7 @@ from sqlalchemy import create_engine
 from selenium import webdriver
 
 # Global variables
-API_KEY = 'RGAPI-961d623e-2638-42ef-9389-67ac31fc6c71'
+API_KEY = os.environ["RIOT_API_KEY"]
 
 def get_names_from_xpaths(xpaths) -> list:
     liste = []

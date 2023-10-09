@@ -1,4 +1,5 @@
 import datetime
+import os
 from sys import api_version
 
 from riotwatcher import LolWatcher, ApiError
@@ -10,8 +11,11 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 
+# Global variables
+API_KEY = os.environ["RIOT_API_KEY"]
+
 def getChampions():
-    lol_watcher = LolWatcher('RGAPI-961d623e-2638-42ef-9389-67ac31fc6c71')
+    lol_watcher = LolWatcher(API_KEY)
 
     versions = lol_watcher.data_dragon.versions_for_region('oce')
     champions_version = versions['n']['champion']

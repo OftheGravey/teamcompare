@@ -10,7 +10,7 @@ from sqlalchemy import schema
 from airflow import hooks
 
 def drive():
-    postgres_hook = PostgresHook("airflow_db")
+    postgres_hook = PostgresHook("airflow")
     conn = postgres_hook.get_conn()
     cursor = conn.cursor()
 

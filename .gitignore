@@ -1,0 +1,4 @@
+*.srct
+*.log
+logs
+*.pyc

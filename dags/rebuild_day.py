@@ -11,12 +11,12 @@ with DAG(
 ) as dag:
     delete_tables = PostgresOperator(
         task_id="delete",
-        postgres_conn_id="airflow_db",
+        postgres_conn_id="airflow",
         sql="sql/delete_db.sql"
     )
     create_table = PostgresOperator(
         task_id="build",
-        postgres_conn_id="airflow_db",
+        postgres_conn_id="airflow",
         sql="sql/build_db.sql"
     )
 

@@ -11,8 +11,8 @@ with DAG(
 ) as dag:
     create_table = PostgresOperator(
         task_id="build",
-        postgres_conn_id="airflow_db",
+        postgres_conn_id="airflow",
         sql="sql/build_db.sql"
     )
 
-    create_table
+create_table
